@@ -27,24 +27,24 @@ impl PPM {
  
   fn get_offset(&self, x: usize, y: usize) -> Option<usize> {
     let offset = (y * self.width * 3) + (x * 3);
-    if (offset < self.buffer_size()) {
+    if offset < self.buffer_size() {
       Some(offset)
     } else {
       None
     }
   }
  
-  pub fn get_pixel(&self, x: usize, y: usize) -> Option<RGB> {
-    match self.get_offset(x, y) {
-      Some(offset) => {
-        let r = self.data[offset];
-        let g = self.data[offset + 1];
-        let b = self.data[offset + 2];
-        Some(RGB {r: r, g: g, b: b})
-      },
-      None => None
-    }
-  }
+  // pub fn get_pixel(&self, x: usize, y: usize) -> Option<RGB> {
+  //   match self.get_offset(x, y) {
+  //     Some(offset) => {
+  //       let r = self.data[offset];
+  //       let g = self.data[offset + 1];
+  //       let b = self.data[offset + 2];
+  //       Some(RGB {r: r, g: g, b: b})
+  //     },
+  //     None => None
+  //   }
+  // }
  
   pub fn set_pixel(&mut self, x: usize, y: usize, color: RGB) -> bool {
     match self.get_offset(x, y) {

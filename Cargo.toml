@@ -4,11 +4,5 @@ version = "0.1.0"
 authors = ["frigaardj"]
 
 [dependencies]
-libc = "*"
 cgmath = "*"
-glutin = "*"
-glium = "*"
-rand = "*"
-
-[dependencies.gl]
-gl = "0.0.12"
+time = "0.1"
